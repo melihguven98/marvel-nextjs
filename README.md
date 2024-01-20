@@ -16,3 +16,11 @@ API_PUBLIC_KEY = { your_api_public_key };
 API_PRIVATE_KEY = { your_api_private_key };
 API_BASE_URL = 'https://gateway.marvel.com/v1/public';
 ```
+
+# Screenshots
+- Home
+![Screenshot1](marvel-home.png)
+- Search
+![Screenshot2](marvel-search.png)
+- Detail
+![Screenshot3](marvel-detail.png)
