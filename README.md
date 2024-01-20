@@ -1,8 +1,12 @@
 # NextJS and DaisyUI
 https://nextjs.org/docs
+
 https://daisyui.com/
+
 https://tailwindcss.com/
+
 https://developer.marvel.com/docs
+
 https://www.npmjs.com/package/md5
 
 # Environment Variables
