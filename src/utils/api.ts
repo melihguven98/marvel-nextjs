@@ -1,9 +1,9 @@
 import { CharacterDataWrapper } from '@/types/marvels';
 import md5 from 'md5';
-const API_BASE_URL = "https://gateway.marvel.com/v1/public";
-const API_PUBLIC_KEY = "e3ef81417ab4b14c2b34ad64e8332713";
-const API_PRIVATE_KEY = "1bb33ee8b8bf3fc323feed8e263c3b090fadb30c";
 
+const API_BASE_URL=process.env.API_BASE_URL;
+const API_PUBLIC_KEY=process.env.API_PUBLIC_KEY;
+const API_PRIVATE_KEY=process.env.API_PRIVATE_KEY;
 
 const getTimeStamp = () => Date.now().toString();
 const getHash = (timeStamp: string) => md5(timeStamp+API_PRIVATE_KEY+API_PUBLIC_KEY);
@@ -21,7 +21,7 @@ const handleResponse = async <T>(response: Response) => {
 }
 
 export const getCharacters = async (): Promise<CharacterDataWrapper> => {
-  const url = `${API_BASE_URL}/characters?${query}`;
+  const url = `${API_BASE_URL}/characters?${query}&limit=10`;
   const response = await fetch(url);
   return handleResponse<CharacterDataWrapper>(response);
 }
@@ -33,7 +33,7 @@ export const detailCharacter = async (characterId: string): Promise<CharacterDat
 }
 
 export const searchCharacters = async (querySearch: string | null): Promise<CharacterDataWrapper> => {
-  const url = `${API_BASE_URL}/characters?nameStartsWith=${querySearch}&limit=99&${query}`;
+  const url = `${API_BASE_URL}/characters?nameStartsWith=${querySearch}&limit=10&${query}`;
   const response = await fetch(url);
   return handleResponse<CharacterDataWrapper>(response);
 }
